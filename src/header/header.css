@@ -1,0 +1,233 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+
+.sidebar{
+    float: left;
+    width: 13.02vw;
+    padding: 10px 10px;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: black;
+    overflow-y: hidden;
+}
+
+.sidebar-wrapper{
+    padding-bottom: 200px;
+}
+
+.sidebar__menu{
+    width: 100%;
+    margin: 20px 0;
+    color: rgb(190, 190, 190);
+}
+
+.sidebar__logo p{
+    font-size: 35px;
+    color: white;
+}
+
+.sidebar__menu a{
+    color: rgb(190, 190, 190);
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.sidebar__menu i{
+    margin: 0 20px;
+    font-size: 18px;
+}
+
+.sidebar__menu a.sidebar__menu__selecionado{
+    color: white;
+    background-color: rgb(80, 80, 80);
+    border-radius: 5px;
+}
+
+.sidebar__menu__item{
+    margin-top: 12px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.sidebar__menu p.sidebar__menu__title{
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.sidebar__menu__item__componente{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    display: inline-block;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+}
+
+.sidebar__menu__item span{
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+.sidebar__playlists{
+    padding: 20px 0;
+    border-top: 1px solid rgb(40, 40, 40);
+}
+
+.sidebar__playlists a{
+    margin: 10px 0;
+    display: block;
+    color: rgb(190, 190, 190);
+    text-decoration: none;
+}
+
+.sidebar__playlists a:hover{
+    color: white;
+}
+
+.btn-mobile{
+    display: none;
+}
+
+@media screen and (max-width: 1700px){
+    .sidebar{
+        width: 60px;
+        transition: 0.5s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    /* esconder scrollbar no Chrome, Safari e Opera */
+    .sidebar::-webkit-scrollbar {
+        display: none;
+    }
+    /* esconder scrollbar no IE, Edge e Firefox */
+    .sidebar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .sidebar.active{
+        transition: 0.9s ease;
+        width: 220px;
+    }
+
+    /*.sidebar.active .player{
+        width: calc(100% - 220px);
+    }*/
+
+    .sidebar.active .btn-mobile{
+        float: right;
+    }
+
+    .sidebar.active .sidebar__logo{
+        display: block;
+        float: left;
+    }
+
+    .sidebar.active .sidebar__menu{
+        display: inline-block;
+    }
+
+    .sidebar.active .sidebar__playlists{
+        display: block;
+    }
+
+    .sidebar__menu, .sidebar__logo, .sidebar__playlists{
+        display: none;
+    }
+
+    .sidebar.active .btn-mobile{
+        animation: fadeIn 4s;
+        -webkit-animation: fadeIn 4s;
+        -moz-animation: fadeIn 4s;
+        -o-animation: fadeIn 4s;
+        -ms-animation: fadeIn 4s;
+    }
+    
+    .sidebar__menu, .sidebar__logo, .sidebar__playlists{
+        animation: fadeIn 4s;
+        -webkit-animation: fadeIn 4s;
+        -moz-animation: fadeIn 4s;
+        -o-animation: fadeIn 4s;
+        -ms-animation: fadeIn 4s;
+    }
+
+    @keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+      
+    @-moz-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+      
+    @-webkit-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+      
+    @-o-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+      
+    @-ms-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+
+    /* Menu mobile*/
+    .btn-mobile {
+        color: #fff;
+        display: flex;
+        padding: 10px 10px;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: 0.5rem;
+        float: left;
+    }
+
+    .hamburger {
+        border-top: 2px solid;
+        width: 20px;
+    }
+
+    .hamburger::after, .hamburger::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    .sidebar.active .hamburger {
+        border-top-color: transparent;
+    }
+
+    .sidebar.active .hamburger::before {
+        transform: rotate(135deg);
+    }
+
+    .sidebar.active .hamburger::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+    /* Menu mobile*/
+}
